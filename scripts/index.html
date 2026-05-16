@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta charset="UTF-8"></head>
+<body>
+<script>
+window['ai_edge_gallery_get_result'] = async (data) => {
+  try {
+    const json = JSON.parse(data);
+    const lesson = json.lesson;
+
+    if (!lesson) {
+      return JSON.stringify({ error: '未收到教案数据，请重试。' });
+    }
+
+    // 将 lesson 对象编码后传给 webview
+    const encoded = encodeURIComponent(JSON.stringify(lesson));
+
+    return JSON.stringify({
+      result: `教案《${lesson['课题信息'] || ''}》已生成，请查看下方卡片。`,
+      webview: {
+        url: `lesson-view.html?d=${encoded}`,
+        aspectRatio: 1.6
+      }
+    });
+  } catch (e) {
+    return JSON.stringify({ error: `处理失败：${e.message}` });
+  }
+};
+</script>
+</body>
+</html>
