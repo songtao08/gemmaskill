@@ -1,8 +1,6 @@
 ---
 name: ai-lesson-planner
-description: 生成专业中小学教学设计方案（教案）。当用户提到备课、写教案、教学设计、lesson plan时触发。收集学段/年级/学科/课题等信息后，生成完整教案并以精美卡片展示。
-metadata:
-  homepage: https://github.com/google-ai-edge/gallery
+description: Generate professional Chinese K-12 lesson plans. Trigger when user mentions 备课, 写教案, 教学设计, or lesson plan. Collects grade/subject/topic info, generates complete lesson plan, displays as formatted card.
 ---
 
 # AI 备课教案生成器
